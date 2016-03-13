@@ -18,13 +18,13 @@ end
 
 -- middle, 2nd column, upper / lower
 listener_8_mp = function(event, arg)
-    PlayMacro("Battery Level (G602)");
+    PlayMacro("Profile Settings");
 end
 listener_8_mr = function(event, arg)
     -- Do nothing
 end
 listener_5_mp = function(event, arg)
-    -- Do nothing
+    PlayMacro("Battery Level (G602)");
 end
 listener_5_mr = function(event, arg)
     -- Do nothing

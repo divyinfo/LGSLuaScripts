@@ -19,10 +19,16 @@ end
 
 -- farthest, 1st column, upper / lower
 listener_7_mp = function(event, arg)
+    PressKey("lctrl");
     PressKey("lshift");
+    PressKey("t");
+
+    ReleaseKey("lctrl");
+    ReleaseKey("lshift");
+    ReleaseKey("t");
 end
 listener_7_mr = function(event, arg)
-    ReleaseKey("lshift");
+    -- Do nothing
 end
 listener_4_mp = function(event, arg)
     PlayMacro("Forward");

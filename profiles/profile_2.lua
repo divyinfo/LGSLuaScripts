@@ -7,7 +7,7 @@ listener_7_mp = function(event, arg)
     PlayMacro("Google Translate");
 end
 listener_4_mp = function(event, arg)
-    -- PlayMacro("");
+    PlayMacro("Gmail");
 end
 
 -- middle, 2nd column, upper / lower
