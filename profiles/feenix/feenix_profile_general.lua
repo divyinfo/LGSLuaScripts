@@ -18,14 +18,21 @@ listener_11_mp = function(event, arg)
 end
 
 -- farthest, 1st column, upper / lower
+playingMacroToggle4 = false
 listener_7_mp = function(event, arg)
-    PlayMacro("Toggle4");
+    if playingMacroToggle4 then
+        AbortMacro()
+        playingMacroToggle4 = false
+    else
+        PlayMacro("Toggle4");
+        playingMacroToggle4 = true
+    end
 end
 listener_7_mr = function(event, arg)
     -- Do nothing
 end
 listener_4_mp = function(event, arg)
-    PlayMacro("Forward");
+    PlayMacro("SwitchActionBar");
 end
 listener_4_mr = function(event, arg)
     -- Do nothing
