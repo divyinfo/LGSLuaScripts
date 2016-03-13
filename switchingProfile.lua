@@ -1,5 +1,6 @@
 profile = 0
 profileCount = 4
+profileLocation = "G:\\Work\\LGSLuaMouseScripts\\profiles\\"
 profileFuncPrefix = "listener_"
 
 function OnEvent(event, arg)
@@ -49,7 +50,7 @@ end
 function loadProfile(p)
     local profileFileName = "profile_" .. (p ~= nil and p or "general");
 
-    local profilePath = "G:\\Work\\LGSLuaMouseScripts\\profiles\\"..profileFileName..".lua";
+    local profilePath = profileLocation..profileFileName..".lua";
     local profileFile = nil;
 
     if pcall(function () profileFile = dofile(profilePath) end) then
