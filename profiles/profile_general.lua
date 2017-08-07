@@ -162,8 +162,19 @@ end
 
 -- g1
 listener_m2_g_p_1 = function(event, arg)
-    PlayMacro("Locations");
-    SetMKeyState(1);
+    -- Netease global Play / Pause
+
+    PressKey("lctrl");
+    PressKey("lshift");
+    PressKey("lalt");
+    PressKey("p");
+
+    ReleaseKey("lctrl");
+    ReleaseKey("lshift");
+    ReleaseKey("lalt");
+    ReleaseKey("p");
+
+    -- SetMKeyState(1);
 end
 listener_m2_g_r_1 = function(event, arg)
     -- Do nothing
@@ -171,8 +182,19 @@ end
 
 -- g2
 listener_m2_g_p_2 = function(event, arg)
-    PlayMacro("Dnvod");
-    SetMKeyState(1);
+    -- Netease global lyrics toggle
+
+    PressKey("lctrl");
+    PressKey("lshift");
+    PressKey("lalt");
+    PressKey("d");
+
+    ReleaseKey("lctrl");
+    ReleaseKey("lshift");
+    ReleaseKey("lalt");
+    ReleaseKey("d");
+
+    -- SetMKeyState(1);
 end
 listener_m2_g_r_2 = function(event, arg)
     -- Do nothing
@@ -180,7 +202,19 @@ end
 
 -- g3
 listener_m2_g_p_3 = function(event, arg)
-    -- Do nothing
+    -- Netease global volume up
+
+    PressKey("lctrl");
+    PressKey("lshift");
+    PressKey("lalt");
+    PressKey("up");
+
+    ReleaseKey("lctrl");
+    ReleaseKey("lshift");
+    ReleaseKey("lalt");
+    ReleaseKey("up");
+
+    -- SetMKeyState(1);
 end
 listener_m2_g_r_3 = function(event, arg)
     -- Do nothing
@@ -188,7 +222,19 @@ end
 
 -- g4
 listener_m2_g_p_4 = function(event, arg)
-    -- Do nothing
+    -- Netease global volume down
+
+    PressKey("lctrl");
+    PressKey("lshift");
+    PressKey("lalt");
+    PressKey("down");
+
+    ReleaseKey("lctrl");
+    ReleaseKey("lshift");
+    ReleaseKey("lalt");
+    ReleaseKey("down");
+
+    -- SetMKeyState(1);
 end
 listener_m2_g_r_4 = function(event, arg)
     -- Do nothing
@@ -196,7 +242,19 @@ end
 
 -- g5
 listener_m2_g_p_5 = function(event, arg)
-    -- Do nothing
+    -- Netease global previous
+
+    PressKey("lctrl");
+    PressKey("lshift");
+    PressKey("lalt");
+    PressKey("left");
+
+    ReleaseKey("lctrl");
+    ReleaseKey("lshift");
+    ReleaseKey("lalt");
+    ReleaseKey("left");
+
+    -- SetMKeyState(1);
 end
 listener_m2_g_r_5 = function(event, arg)
     -- Do nothing
@@ -204,7 +262,19 @@ end
 
 -- g6
 listener_m2_g_p_6 = function(event, arg)
-    -- Do nothing
+    -- Netease global next
+
+    PressKey("lctrl");
+    PressKey("lshift");
+    PressKey("lalt");
+    PressKey("right");
+
+    ReleaseKey("lctrl");
+    ReleaseKey("lshift");
+    ReleaseKey("lalt");
+    ReleaseKey("right");
+
+    -- SetMKeyState(1);
 end
 listener_m2_g_r_6 = function(event, arg)
     -- Do nothing
