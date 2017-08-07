@@ -38,24 +38,47 @@ listener_4_mr = function(event, arg)
     -- Do nothing
 end
 
+toggleAutoRun8 = false;
+toggleAutoRun5 = false;
+toggleAutoRun = false;
+
 -- middle, 2nd column, upper / lower
 listener_8_mp = function(event, arg)
-    PlayMacro("Num *");
+    toggleAutoRun8 = true
 end
 listener_8_mr = function(event, arg)
-    -- Do nothing
+    if toggleAutoRun then
+        toggleAutoRun = false;
+    else
+        if toggleAutoRun5 then
+            PlayMacro("Num *");
+            toggleAutoRun = true;
+        else
+            PressKey("m");
+            ReleaseKey("m");
+            toggleAutoRun = false;
+        end
+    end
+
+    toggleAutoRun8 = false
 end
 listener_5_mp = function(event, arg)
-    PressKey("lctrl");
-    PressKey("lshift");
-    PressKey("backslash");
-
-    ReleaseKey("lctrl");
-    ReleaseKey("lshift");
-    ReleaseKey("backslash");
+    toggleAutoRun5 = true
 end
 listener_5_mr = function(event, arg)
-    -- Do nothing
+    if toggleAutoRun then
+        toggleAutoRun = false;
+    else
+        if toggleAutoRun8 then
+            PlayMacro("Num *");
+            toggleAutoRun = true;
+        else
+            PlayMacro("BagsAndProfile");
+            toggleAutoRun = false;
+        end
+    end
+
+    toggleAutoRun5 = false
 end
 
 -- nearest, 3rd column, upper / lower
@@ -66,8 +89,8 @@ listener_9_mr = function(event, arg)
     -- Do nothing
 end
 listener_6_mp = function(event, arg)
-    PressKey("quote");
-    ReleaseKey("quote");
+    PressKey("spacebar");
+    ReleaseKey("spacebar");
 end
 listener_6_mr = function(event, arg)
     -- Do nothing
