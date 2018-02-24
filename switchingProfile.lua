@@ -1,6 +1,6 @@
 profile = 0;
 profileCount = 4;
-profileLocation = "G:\\Work\\LGSLuaMouseScripts\\profiles\\";
+profileLocation = "C:\\lgs\\profiles\\";
 profileFuncPrefix = "listener";
 
 function OnEvent(event, arg, family)
@@ -82,6 +82,8 @@ function loadProfile(p)
 
 	local profilePath = profileLocation..profileFileName..".lua";
 	local profileFile = nil;
+
+	AbortMacro();
 
 	if pcall(function () profileFile = dofile(profilePath) end) then
 		OutputLogMessage("    " .. "loaded profile:" .. profileFileName .. ", location: " .. profileLocation .. "\n");
