@@ -285,8 +285,43 @@ end
 -- -----------
 
 -- g1
+local M3G1Playing = false;
+local mouseXStart = 0;
+local mouseYStart = 0;
+local mouseMovedTooMuch = function()
+    local mouseXCurrent, mouseYCurrent = GetMousePosition();
+    local diffX, diffY = mouseXCurrent - mouseXStart, mouseYCurrent - mouseYStart;
+    return diffX * diffX + diffY * diffY >= 53687091.2;
+end
 listener_m3_g_p_1 = function(event, arg)
-    -- Do nothing
+    AbortMacro();
+
+    if not M3G1Playing then
+        M3G1Playing = true;
+        mouseXStart, mouseYStart = GetMousePosition();
+
+        Sleep(50);
+
+        OutputLogMessage("    -> sleeping time: ");
+
+        while not IsMouseButtonPressed(1) and not mouseMovedTooMuch() do
+            
+            PressAndReleaseMouseButton(1);
+            local w = math.random(100, 300);
+
+            if comma ~= nil then
+                OutputLogMessage(", ");
+            else
+                comma = true;
+            end
+            OutputLogMessage(w);
+
+            Sleep(w);
+        end
+
+        OutputLogMessage("\n");
+        OutputLogMessage("    -> M3G1 ended.\n");
+    end
 end
 listener_m3_g_r_1 = function(event, arg)
     -- Do nothing
@@ -294,7 +329,7 @@ end
 
 -- g2
 listener_m3_g_p_2 = function(event, arg)
-    -- Do nothing
+    M3G1Playing = false;
 end
 listener_m3_g_r_2 = function(event, arg)
     -- Do nothing
