@@ -30,16 +30,38 @@ function OnEvent(event, arg, family)
 		local pos = eventIndex * 2 - 1;
 		table.insert(eventPart, pos, "_m" .. currentMState .. eventPart[pos]);
 	end
+	
+	local topAliases = {"top", "up", "upper"};
+	local botAliases = {"bot", "down", "lower"};
+	local farAliases = {"far", "f", "1", "1st", "first"};
+	local midAliases = {"mid", "m", "2", "2nd", "second"};
+	local nearAliases = {"near", "n", "3", "3rd", "third"};
 
 	local argPart = {"_" .. arg};
 	if family == "mouse" then
-		if false then
-		elseif arg == 7 then argPart = {"_" .. arg, "_far_upper", "_far_top", "_1st_upper", "_1st_top", "_1_upper", "_1_top"};
-		elseif arg == 4 then argPart = {"_" .. arg, "_far_lower", "_far_bot", "_1st_lower", "_1st_bot", "_1_lower", "_1_bot"};
-		elseif arg == 8 then argPart = {"_" .. arg, "_mid_upper", "_mid_top", "_2nd_upper", "_2nd_top", "_2_upper", "_2_top"};
-		elseif arg == 5 then argPart = {"_" .. arg, "_mid_lower", "_mid_bot", "_2nd_lower", "_2nd_bot", "_2_lower", "_2_bot"};
-		elseif arg == 9 then argPart = {"_" .. arg, "_near_upper", "_near_top", "_3rd_upper", "_3rd_top", "_3_upper", "_3_top"};
-		elseif arg == 6 then argPart = {"_" .. arg, "_near_lower", "_near_bot", "_3rd_lower", "_3rd_bot", "_3_lower", "_3_bot"}; end
+
+		local distTable = {};
+		if arg == 7 or arg == 4 then
+			distTable = farAliases;
+		elseif arg == 8 or arg == 5 then
+			distTable = midAliases;
+		elseif arg == 9 or arg == 6 then
+			distTable = nearAliases;
+		end
+
+		local heightTable = {};
+		if arg == 4 or arg == 5 or arg == 6 then
+			heightTable = topAliases;
+		elseif arg == 7 or arg == 8 or arg == 9 then
+			heightTable = botAliases;
+		end
+
+		for di = 1, table.getn(distTable) do
+			for hi = 1, table.getn(heightTable) do
+				table.insert(argPart, "_" .. distTable[di] .. "_" .. heightTable[hi]);
+				table.insert(argPart, "_" .. heightTable[hi] .. "_" .. distTable[di]);
+			end
+		end
 	end
 
 	for argIndex = 1, table.getn(argPart) do
