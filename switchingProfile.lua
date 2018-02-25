@@ -1,7 +1,7 @@
 profile = 0;
 profileCount = 4;
 profileLocation = "C:\\lgs\\profiles\\";
-profileFuncPrefix = "listener";
+profileFuncPrefix = "l.listener";
 l = {};
 
 function OnEvent(event, arg, family)
@@ -68,7 +68,7 @@ function OnEvent(event, arg, family)
 	for argIndex = 1, table.getn(argPart) do
 		for eventIndex = 1, table.getn(eventPart) do
 
-			local funcName = "l." .. profileFuncPrefix .. eventPart[eventIndex] .. argPart[argIndex] .. "";
+			local funcName = profileFuncPrefix .. eventPart[eventIndex] .. argPart[argIndex] .. "";
 			local execStr = "";
 
 			execStr = execStr .. "if l ~= nil and " .. funcName .. " ~= nil then" .. "\n";
