@@ -2,6 +2,7 @@ profile = 0;
 profileCount = 4;
 profileLocation = "C:\\lgs\\profiles\\";
 profileFuncPrefix = "listener";
+l = {};
 
 function OnEvent(event, arg, family)
 
@@ -67,10 +68,10 @@ function OnEvent(event, arg, family)
 	for argIndex = 1, table.getn(argPart) do
 		for eventIndex = 1, table.getn(eventPart) do
 
-			local funcName = profileFuncPrefix .. eventPart[eventIndex] .. argPart[argIndex];
+			local funcName = "l." .. profileFuncPrefix .. eventPart[eventIndex] .. argPart[argIndex] .. "";
 			local execStr = "";
 
-			execStr = execStr .. "if " .. funcName .. " ~= nil then" .. "\n";
+			execStr = execStr .. "if l ~= nil and " .. funcName .. " ~= nil then" .. "\n";
 			execStr = execStr .. "OutputLogMessage(\"function " .. funcName .. " found\\n\");" .. "\n";
 			execStr = execStr .. "return " .. funcName .. "\n";
 			execStr = execStr .. "else" .. "\n";
@@ -106,6 +107,7 @@ function loadProfile(p)
 	local profileFile = nil;
 
 	AbortMacro();
+	l = {};
 
 	if pcall(function () profileFile = dofile(profilePath) end) then
 		OutputLogMessage("    " .. "loaded profile:" .. profileFileName .. ", location: " .. profileLocation .. "\n");
