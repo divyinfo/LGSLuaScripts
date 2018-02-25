@@ -1,3 +1,5 @@
+loadProfile();
+
 -- ----------------
 -- Profile 2, Shortcuts
 -- ----------------

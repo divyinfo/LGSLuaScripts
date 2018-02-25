@@ -1,3 +1,5 @@
+loadProfile();
+
 -- ----------------
 -- Profile 3, Mouse control
 -- ----------------
